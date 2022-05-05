@@ -9,13 +9,17 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="style.css">
 
-    <title>Document</title>
+    <title>AlpineJS Tutorial</title>
 </head>
 <body>
+
+    <script>
+        let stopTimer
+    </script>
     
     <div class="bg-primary text-dark bg-opacity-75">
         <div class="container">
-            <h3 class="display-4 text-white"><u>AlpineJs Tutorial</u></h3>
+            <h3 class="display-4 text-white"><u>AlpineJS Tutorial</u></h3>
             <div class="row g-2">
               <div class="col-6">
                 <div class="p-3 border bg-light">
@@ -45,14 +49,17 @@
                 </div>
               </div>
               <div class="col-6">
-                <div class="p-3 border bg-light">
+                  <div class="p-3 border bg-light">
                     <h5>AlpineJS x-init</h5>
                     <div x-data="{ countdown: 60 }"
-                        x-init="setInterval(function(){
+                        x-init="">
+                        <h2 x-text="countdown"></h2>
+
+                        <button class="btn btn-success" @click="stopTimer=setInterval(function(){
                             countdown--;
-                            }, 1000);">
-                        <h1 x-text="countdown"></h1>
+                            }, 1000);">Start</button>
                         <button class="btn btn-warning" @click="countdown='60'">Reset</button>
+                        <button class="btn btn-danger" @click="clearInterval(stopTimer);">Pause</button>
                     </div>
                 </div>
               </div>
@@ -96,7 +103,7 @@
                         <template x-if="socks=='green'">
                             <p>My socks are green</p>
                         </template>
-                        <button class="btn btn-warning" @click="socks = 'green'">Change Sox</button>
+                        <button class="btn btn-warning" @click="socks = 'green'">Change Socks</button>
                     </div>
                   </div>
                 </div>
